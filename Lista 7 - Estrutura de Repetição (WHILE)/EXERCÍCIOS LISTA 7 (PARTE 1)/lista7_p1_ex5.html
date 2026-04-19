@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Corrida de Voltas</h2>
+
+    Quanto voltas seu carro dará numa corrida :
+    <input type="text" id="input_qtd">
+    <br><br>
+
+    <button onclick="repeticao()">Iniciar corrida!</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    
+    function repeticao(){
+        let contador = 0;
+        let mensagem = '';
+        let qtd = Number(input_qtd.value);
+
+        while(contador < qtd){
+        contador ++;
+        mensagem += `Carro dando a ${contador}ª volta <br>`;  
+        }
+
+        div_mensagem.innerHTML = mensagem + `Corrida finalizada!`;
+    }
+    
+</script>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input_nota" value="coloque sua nota">
+    <button onclick="opiniaoAvo()"> Opinião da avó </button>
+    <button onclick="opiniaoMae()"> Opinião da mãe </button>
+    <div id="exibir"></div>
+</body>
+</html>
+
+
+<script>
+function opiniaoMae() {
+exibir.innerHTML  = 'Não fez mais que tua obrigação com essa nota' + input_nota.value
+}
+
+function opiniaoAvo(){
+// código para exibir na caixa de alerta :
+// alert('Muito bem, que neto inteligente, porque tirou' + input_nota.value)
+exibir.innerHTML  = 'Muito bem, que neto inteligente, porque tirou' + input_nota.value
+}
+
+
+</script>

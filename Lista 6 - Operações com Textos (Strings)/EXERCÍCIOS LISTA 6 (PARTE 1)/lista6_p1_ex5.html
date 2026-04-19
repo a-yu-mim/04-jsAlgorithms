@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<body>
+  <h2> Substituidor de Caracteres</h2>
+
+  // oninput -> enquanto digita vai aparecendo
+  Senha:
+  <input type="text" id="input_senha" oninput="trocar()">
+
+  <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+  function trocar() {
+    let senha = input_senha.value;
+
+    let senhaForte = senha
+      .replaceAll('a', "@") // troca "a" por "@"
+      .replaceAll(`A`, "@") // troca "A" por "@"
+      .replace(/e/gi, "3") // troca "e,E" por "3"
+
+    div_mensagem.innerHTML = `Senha forte:` + senhaForte;
+  }
+</script>

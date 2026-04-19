@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Controle da umidade do ar</h2>
+     
+    Qual a umidade atual do ambiente:
+    <input type="text" id="input_umi"><br><br>
+
+    <button onclick="calculo()">Verificar umidade</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function calculo() {
+        let umidade = Number(input_umi.value);
+       
+if(umidade >= 0) {
+    if(umidade <= 100){
+
+        if(umidade < 12){
+            div_mensagem.innerHTML = `<br>Estado de Emergencia`;
+            } else if(umidade <= 20) {
+            div_mensagem.innerHTML = `<br>Estado de alerta`;
+            } else if(umidade <= 30) {
+            div_mensagem.innerHTML = `<br>Estado de atenção`;
+            } else { 
+            div_mensagem.innerHTML = `<br>Nenhum risco`;
+        }
+
+    }else {alert(`Erro: inserir valores reais!`)}
+ }
+}
+</script>

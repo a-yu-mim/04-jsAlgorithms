@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Tabuada Colorida</h2>
+
+    Escolha a tabuada:
+    <select id="select_tabuada">
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+    </select><br><br>
+
+    Até qual número?
+    <input type="text" id="input_limite"><br><br>
+
+    <button onclick="repeticao()">Ver Tabuada</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    
+    function repeticao(){
+        let tabuada = Number(select_tabuada.value);
+        let limite = Number(input_limite.value);
+        let mensagem = '';
+        let contador = 1;
+        
+    while(contador <= limite){
+
+            if (contador % 2 == 0){
+                mensagem += `<p style="color:blue">${tabuada} x ${contador} = ${tabuada * contador}</p>`;  
+            } else{ 
+                mensagem += `<p style="color:red">${tabuada} x ${contador} = ${tabuada * contador}</p>`;  
+            }
+
+            contador++;
+
+        } 
+        div_mensagem.innerHTML = mensagem;
+        }
+    
+</script>

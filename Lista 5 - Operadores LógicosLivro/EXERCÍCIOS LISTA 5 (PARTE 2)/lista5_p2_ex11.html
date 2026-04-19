@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Carrara Drivers - taxista RJ</h2>
+    
+    Nome do passageiro:
+    <input type="number" id="input_nome"><br><br>
+
+    Distância (km):
+    <input type="number" id="input_km"><br><br>
+
+    Bandeira (1,2,3):
+    <input type="number" id="input_bandeira"><br><br>
+
+    Horário (0 a 23):
+    <input type="number" id="input_hora"><br><br>
+
+    <button onclick="calcular()">Calcular corrida</button>
+    <div id="mensagem"></div>
+
+</body>
+</html>
+<script>
+    function calcular(){
+        let nome = input_nome.value;
+        let km = Number(input_km.value);
+        let bandeira = Number(input_bandeira.value);
+        let hora = Number(input_hora.value);
+
+        let valorkm = 1.25;
+        let acrescimo = 0;
+        
+if(bandeira >= 1 && bandeira <= 3 && hora >= 0 && hora <= 23){
+
+    //bandeira 1
+    if(bandeira ==1){
+        if(hora <= 6){
+            acrescimo = 0.05;
+        } else if(hora <= 12){
+            acrescimo = 0.10;
+        } else{
+            acrescimo = 0.15;
+        }
+    }
+            
+    //bandeira 2
+    if(bandeira ==2){
+        if(hora <= 6){
+            acrescimo = 0.1;
+        } else if(hora <= 12){
+            acrescimo = 0.2;
+        } else{
+            acrescimo = 0.3;
+        }
+    }
+
+    //bandeira 2
+    if(bandeira ==3){
+        if(hora <= 6){
+            acrescimo = 0.15;
+        } else if(hora <= 12){
+            acrescimo = 0.30;
+        } else{
+            acrescimo = 0.45;
+        }
+    }
+
+        let total = km * valorkm;
+        let totalFinal = total + (total * acrescimo);
+
+        mensagem.innerHTML = `Olá ${nome}! Sua corrida, será na bandeira ${bandeira}, 
+        percorrerá ${km} km e o total da corrida será de R$ ${totalFinal.toFixed(2)}`;
+    }
+}
+</script>

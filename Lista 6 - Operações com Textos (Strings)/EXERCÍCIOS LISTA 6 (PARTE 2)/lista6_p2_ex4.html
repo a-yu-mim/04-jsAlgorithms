@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Top Filmes Favoritos: Do Mais Amado ao Menos</h2>
+
+    Informe cada filme favorito seu (do mais para menos): <br>
+    <input type="text" id="input_filme">
+
+    <button onclick="cadastrar()">Cadastrar filme</button>
+    <button onclick="ver()">Ver Favoritos</button>
+    <br><br>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    let lista = [];
+
+    function cadastrar(){
+        let filme = input_filme.value;
+        lista.push(filme);
+        div_mensagem.innerHTML = `Cadastrado!`
+
+        input_filme.value = '';
+    }
+
+    function ver(){
+        div_mensagem.innerHTML = '';
+
+        if(lista.length == 0){
+        div_mensagem.innerHTML = `Nenhum filme cadastrado!`;
+        } else{ 
+            div_mensagem.innerHTML += lista.join(`<br>`);
+            div_mensagem.innerHTML += `<br><br> Total: ${lista.length}`;
+            div_mensagem.innerHTML += `<br><br> O que filme que mais gosta é ${lista[0]}.`;
+            div_mensagem.innerHTML += `<br>  E desses, o que menos gosta é ${lista[lista.length - 1]}.`;
+    }
+}
+    
+</script>

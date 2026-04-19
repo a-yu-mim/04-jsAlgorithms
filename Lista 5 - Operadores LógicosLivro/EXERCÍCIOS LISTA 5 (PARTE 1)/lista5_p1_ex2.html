@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Auxílio Covid-19: Você Tem Direito ao Benefício?</h2>
+    
+    Qual sua renda : 
+    <input type="text" id="input_renda"><br><br>
+
+    Qual a renda total familiar: 
+    <input type="text" id="input_rendaFam"><br><br>
+
+    <button onclick="calculo()">Verificar ajuda</button>
+
+</body>
+</html>
+<script>
+    function calculo(){
+        let renda = Number(input_renda.value);
+        let rendaFam = Number(input_rendaFam.value);
+
+        if(renda <= 1050 && rendaFam <= 2100){
+            alert(`Você terá direito!`);
+        } else {
+            alert(`Você NÃO terá direito`);
+        }
+
+    }
+    
+</script>

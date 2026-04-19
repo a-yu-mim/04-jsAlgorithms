@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Primeira e Última letra</h2>
+
+    Digite uma frase : <br>
+    <input type="text" id="input_frase"><br>
+
+    Digite uma palavra :  <br>
+    <input type="text" id="input_palavra"><br><br>
+
+    <button onclick=" verificar()">Analisar Frase</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+function verificar(){
+    let frase = input_frase.value;
+    let palavra = input_palavra.value;
+
+    let comeca = frase.startsWith(palavra);
+    let termina = frase.endsWith(palavra);
+
+    if(comeca && termina){
+        div_mensagem.innerHTML = `A frase começa e termina com ${palavra}!`;
+        } else if(comeca) {
+        div_mensagem.innerHTML = `A frase começa com ${palavra}!`;    
+        } else if(termina){
+        div_mensagem.innerHTML = `A frase termina com ${palavra}!`;    
+        } else{
+        div_mensagem.innerHTML = `A frase não começa e nem termina com ${palavra}!`;    
+        }
+    }
+    
+</script>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Desafio One Piece - Invasão de Impel Down</h2>
+    Quantidade de batalhas:<br>
+    <input type="text" id="input_qtd"><br><br>
+
+    Quantidade de marinheiros em cada batalha:<br>
+    <input type="text" id="input_marinheiro"><br><br>
+
+    Quantidade de carnes disponíveis:<br>
+    <input type="text" id="input_carne"><br><br>
+
+    <button onclick="fun()">Vai</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+function fun(){
+    let qtd = Number(input_qtd.value);
+    let marinheiro = Number(input_marinheiro.value);
+    let carne = Number(input_carne.value);
+
+    let marinheiroDerrotado = 0;
+    let energia = 100;
+    let mensagem = `Luffy saiu vitorioso!`;
+        
+    for(let i = 1; i <= qtd ; i++){
+        energia -= 10;
+        
+    for(let j = 1; j <= marinheiro ; j++){
+
+        if(energia < 5 && carne > 0){
+            carne--;
+            energia += 100;
+        }
+
+        if(energia >= 5){
+            energia -= 5;
+            marinheiroDerrotado ++;
+        } else{
+            mensagem =  `Luffy saiu derrotado!`;
+            energia = 0;
+            i = qtd;
+            break;
+        }
+    }
+
+}
+
+    div_mensagem.innerHTML += `
+    ----------------------------------------<br>
+        Resultado: ${mensagem} <br>
+        Quantidade de carnes restantes: ${carne}<br>
+        Quantidade de marinheiros derrotados: ${marinheiroDerrotado}<br>
+        Energia restante ao final das batalhas: ${energia}<br><br>
+`
+}
+</script>

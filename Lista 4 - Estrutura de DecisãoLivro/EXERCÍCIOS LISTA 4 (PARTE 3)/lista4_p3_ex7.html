@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Consumo de Calorias: Sua Dieta Está Saudável?</h2>
+
+    Quantos pães franceses come por dia?<br> 
+    <input type="text" id="input_pao"><br><br>
+
+    Quantos pacotes de bolacha recheada come por dia?<br> 
+    <input type="text" id="input_bolacha"><br><br>
+
+    Quantos copos de achocolatado toma por dia?<br>
+    <input type="text" id="input_achocolatado"><br>
+
+    <button onclick="calorias()">Verificar calorias</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function calorias() {
+        let pao = Number(input_pao.value);
+        let bolacha = Number(input_bolacha.value);
+        let achocolatado = Number(input_achocolatado.value);
+
+        let calculo = pao * 50 + bolacha * 80 + achocolatado * 70
+
+        if(calculo < 200){ 
+            div_mensagem.innerHTML = `Parabéns, vai ficar em forma`;
+        } else if(calculo <= 400) { 
+             div_mensagem.innerHTML = `Cuidado, vai ficar menos saudável`;
+        } else { //acima de 400
+             div_mensagem.innerHTML = `Alerta crítico de saúde !!!`;
+        } 
+    }
+</script>

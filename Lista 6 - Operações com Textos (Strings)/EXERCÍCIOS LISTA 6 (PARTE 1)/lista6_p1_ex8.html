@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Jogo da Palavra Secreta</h2>
+
+    Digite uma letra:
+    <input type="text" id="input_letra">
+
+    <button onclick="verificar()">Verificar Letras</button>
+
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+<script>
+function verificar(){
+    let palavraSecreta = `morango`;
+    let letra = input_letra.value.toLowerCase();
+
+    if(palavraSecreta.includes(letra)){
+        div_mensagem.innerHTML = `A letra ${letra} aparece na palavra secreta!`
+    } else{
+        div_mensagem.innerHTML = `A letra ${letra} não aparece na palavra secreta!`
+    }
+ 
+    // Apaga o input depois de digitar uma vez e testar
+    input_letra.value = '';
+}
+</script>

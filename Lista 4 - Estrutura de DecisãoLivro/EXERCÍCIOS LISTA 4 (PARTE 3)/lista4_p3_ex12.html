@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Resto da Divisão por 5</h2>
+     
+    Digite um número maior que zero:
+    <input type="text" id="input_numero"><br><br>
+
+    <button onclick="calculo()">Múltiplo de 5</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function calculo() {
+        let numero = Number(input_numero.value);
+        let resto = numero % 5;
+       
+if(numero > 0) {
+
+    if(resto == 0){
+        div_mensagem.innerHTML = `<br>Perfeito, esse número é múltiplo de cinco`;
+        } else if(resto == 1) {
+        div_mensagem.innerHTML = `<br>Vich, sobrou um`;
+        } else if(resto == 2) {
+        div_mensagem.innerHTML = `<br>Para esse o resto é dois`;
+        } else if(resto == 3) { 
+        div_mensagem.innerHTML = `<br>Com mais dois daria certo`;
+        } else {
+        div_mensagem.innerHTML = `<br>Só faltou 1 para ser múltiplo de 5`;
+        }
+
+    }else {alert(`Digite um número maior que zero`);}
+}
+
+</script>

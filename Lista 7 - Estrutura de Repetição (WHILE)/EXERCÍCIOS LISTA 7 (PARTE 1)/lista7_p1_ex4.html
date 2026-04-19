@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Expressar amor</h2>
+
+    O nome da pessoa que ama : 
+    <input type="text" id="input_nome">
+    <br><br>
+
+    Quanto ama :
+    <input type="text" id="input_qtd">
+    <br><br>
+
+    <button onclick="repeticao()">Expressar amor</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    
+    function repeticao(){
+        let contador = 0;
+        let mensagem = '';
+        let nome = input_nome.value;
+        let qtd = Number(input_qtd.value);
+
+        while(contador < qtd){
+        contador ++;
+        mensagem += `${contador} -  ${nome}, eu te amo! Sempre lembre disso!<br>`;  
+        }
+        
+        div_mensagem.innerHTML = mensagem;
+    }
+    
+</script>

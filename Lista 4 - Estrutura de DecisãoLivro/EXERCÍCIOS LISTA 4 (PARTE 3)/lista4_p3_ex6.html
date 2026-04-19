@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <h2> Times Paulistas: O Canto da Sua Torcida! </h2>
+
+    Qual times de São Paulo torce ? 
+    <input type="text" id="input_time">
+
+    <button onclick="fala()">Fale sobre esse time</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function fala() {
+        let time = input_time.value;
+
+        if(time == `São Paulo`){ 
+            div_mensagem.innerHTML = `<span style = "color:red; background-color:black;"> Salve o Tricolor paulista </span>`;
+        } else if(time == `Palmeiras`) { 
+             div_mensagem.innerHTML = `<span style = "color:white; background-color:green;"> Salve o alviverde imponente </span>`;
+        } else if(time == `Corinthians`) {
+             div_mensagem.innerHTML = `<span style = "color:white; background-color:black;"> Salve o Corinthians </span>`;
+        } else if(time == `Santos`) { //coloquei fundo branco mesmo não precisando só para treinar
+             div_mensagem.innerHTML = `<br><span style = "color:black; background-color:white; border: 1px solid black;"> Agora quem dá a bola é o Santos </span>`;
+        } 
+    }
+</script>

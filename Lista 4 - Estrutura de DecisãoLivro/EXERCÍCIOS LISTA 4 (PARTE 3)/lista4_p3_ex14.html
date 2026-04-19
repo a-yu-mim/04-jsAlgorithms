@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+     <style>
+      img {
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+
+</head>
+<body>
+    <h2>Representação do humor do usuário</h2>
+
+    Como está se sentindo hoje: <br><br>
+
+    <select id="humor">
+        <option>Selecione uma opção</option>
+        <option>Feliz</option>
+        <option>Triste</option>
+        <option>Bravo</option>
+        <option>Surpreso</option>
+        <option>Cansado</option>
+    </select>
+
+    <button onclick="mostrar()">Mostrar Humor</button>
+    <div id="Mensagem"></div>
+</body>
+</html>
+<script>
+    function mostrar() {
+        let emocoes= humor.value;
+
+        if(emocoes == `Feliz`){ 
+        Mensagem.innerHTML = `<img src="./imagem/feliz.jpg" alt="">`;
+        } else if(emocoes == `Triste`) { 
+        Mensagem.innerHTML = `<img src="./imagem/triste.jpg" alt="">`;
+        } else if(emocoes == `Bravo`) { 
+        Mensagem.innerHTML = `<img src="./imagem/bravo.jpg" alt="">`;        
+        } else if(emocoes == `Surpreso`) {
+        Mensagem.innerHTML = `<img src="./imagem/surpreso.jpg" alt="">`;        
+        } else if(emocoes == `Cansado`) { 
+        Mensagem.innerHTML = `<img src="./imagem/cansado.jpg" alt="">`;            
+        } else {}
+    }
+</script>

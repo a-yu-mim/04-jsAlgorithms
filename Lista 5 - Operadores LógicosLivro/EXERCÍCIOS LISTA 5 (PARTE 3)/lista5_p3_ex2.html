@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <h2>Processo Seletivo Mentes Brilhantes</h2>
+
+     Nota do ENEM :
+     <input type="text" id="input_enem"><br><br>
+
+     Nota do vestibular interno :
+     <input type="text" id="input_interno"> <br><br>
+
+     <button onclick="calcular()">Avaliação</button>
+
+</body>
+</html>
+<script>
+    function calcular(){
+        let enem = Number(input_enem.value);
+        let interno = Number(input_interno.value);
+
+    if(enem >= 800 || interno >= 700) {
+    alert(`Parabéns! Aprovado`);
+    } else {
+    alert(`Tente semestre que vem!`);  
+    }
+}
+</script>

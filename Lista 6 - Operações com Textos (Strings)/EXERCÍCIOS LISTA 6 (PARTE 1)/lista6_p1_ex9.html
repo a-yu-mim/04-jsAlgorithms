@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    #div_palavra {
+        font-size: 30px;
+        letter-spacing: 10px;
+        margin: 80px;
+    }
+</style>
+</head>
+<body>
+
+    <h2>Super jogo da palavra secreta</h2>
+    <div id="div_palavra"></div>
+
+    Digite uma letra: 
+    <input type="text" id="input_letra" maxlength="1"><!-- maxlength -> máximo que pode digitar -->
+
+    <button onclick= "verificar()">Verificar Letra</button>
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+    let palavraSecreta = `aurelio`;
+    let faltam = 7;
+
+    let p0 ="_";
+    let p1 ="_";
+    let p2 ="_";
+    let p3 ="_";
+    let p4 ="_";
+    let p5 ="_";
+    let p6 ="_";
+
+    mostrar();
+
+    div_mensagem.innerHTML = 
+    `<br><br><i>Palavra secreta definida! Descubra todos os ${faltam} caracteres!</i>`
+
+ // =====================================================================
+
+    function mostrar(){
+        div_palavra.innerHTML = 
+        p0 + " " + p1 + " " + p2 +" " + p3 + " " +  p4 + " " + p5 + " " + p6;
+    }
+
+// =====================================================================
+
+    function verificar(){
+        let letra = input_letra.value.toLowerCase();
+
+        if(letra == ""){
+            div_mensagem.innerHTML = 
+            `<br><br><span style="color: red;">Digite uma letra!</span>`;
+            return;
+        // return -> para a função não continua
+        }
+
+        let acertou = false;
+
+        if (letra == "a" && p0 == "_"){
+            p0 = "a"; faltam --; acertou = true;
+        }
+        if (letra == "u" && p1 == "_"){
+            p1 = "u"; faltam --; acertou = true;
+        }
+        if (letra == "r" && p2 == "_"){
+            p2 = "r"; faltam --; acertou = true;
+        }
+        if (letra == "e" && p3 == "_"){
+            p3 = "e"; faltam --; acertou = true;
+        }
+        if (letra == "l" && p4 == "_"){
+            p4 = "l"; faltam --; acertou = true;
+        }
+        if (letra == "i" && p5 == "_"){
+            p5 = "i"; faltam --; acertou = true;
+        }
+        if (letra == "o" && p6 == "_"){
+            p6 = "o"; faltam --; acertou = true;
+        }
+
+        mostrar();
+// =====================================================================
+    
+    if (acertou) {
+        div_mensagem.innerHTML = 
+        `<br><br>O caractere "${letra}" aparece na palavra 
+        secreta! Faltam ${faltam} caracteres`
+        } else {
+            div_mensagem.innerHTML = 
+            `<br><br>O caractere "${letra}" NÃO aparece na 
+            palavra secreta! Faltam ${faltam} caracteres`
+        }
+
+    if (faltam == 0){
+        div_mensagem.innerHTML = 
+        `<br><br>Parabéns, você descobriu todas as letras
+        da palavra secreta ${palavraSecreta}!`
+    }
+
+    input_letra.value = ``;
+    input_letra.focus();
+}
+</script>

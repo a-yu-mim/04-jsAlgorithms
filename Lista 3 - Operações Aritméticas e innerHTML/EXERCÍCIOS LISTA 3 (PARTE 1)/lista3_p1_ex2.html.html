@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Valor da pizza:<br>
+    <input  id="input_pizza" type="text"> 
+    <br>
+    Quantidade de amigos:<br>
+    <input  id="input_amigos" type="text"> 
+
+    <button onclick="pizza()">#lovePizza</button> 
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function pizza() {
+        div_mensagem.innerHTML = `Cada um dos ${input_amigos.value} amigos vai pagar R$${input_pizza.value / input_amigos.value} `;
+    }
+</script>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <h2>Análise de Parcelamento de Compra</h2>
+
+     Pagamento:
+     <select id="select_pagamento">
+        <option>Dinheiro</option>
+        <option>Cartão de débito</option>
+        <option>Cartão de crédito</option>
+        <option>Boleto</option>
+     </select>
+
+     <button onclick="pagar()">Analisar compra</button>
+     <div id="mensagem"></div>
+</body>
+</html>
+<script>
+    function pagar(){
+        let pagamento = select_pagamento.value;
+
+    if(pagamento == `Dinheiro` || pagamento == `Cartão de débito`) {
+    mensagem.innerHTML = `Você terá que pagar a vista`;
+    } else {
+    mensagem.innerHTML = `Pagamento poderá ser parcelado`;  
+    }
+}
+</script>

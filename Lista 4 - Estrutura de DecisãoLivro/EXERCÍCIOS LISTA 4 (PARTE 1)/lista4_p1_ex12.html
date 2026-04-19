@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Verificação das finanças </h2>
+
+    Qual seu saldo na conta do banco:
+    <input type="text" id="input_saldo"><br><br>
+
+    <button onclick="calculo()">Verificar finanças</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function calculo(){
+        let saldo = Number(input_saldo.value);
+       
+        if(saldo < 18){
+            div_mensagem.innerHTML = `<br><span style="color:red;">Está devendo!</span>`; 
+            } else if(saldo == 18) {div_mensagem.innerHTML = `<br><span style="color:black;">Conta zerada.</span>`; 
+            } else { //saldo > 18 
+            div_mensagem.innerHTML = `<br><span style="color:blue;">Saldo positivo! ^^</span>`; 
+        }
+}
+
+</script>

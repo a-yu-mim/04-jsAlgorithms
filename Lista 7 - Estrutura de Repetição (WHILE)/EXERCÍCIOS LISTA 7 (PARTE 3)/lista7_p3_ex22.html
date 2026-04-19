@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Contagem Simples</h2>
+
+    Limite inferior (maior que 1):
+    <input type="text" id="input_inf"><br><br>
+
+    Limite superior ( menor que 100 e maior que o limite inferior):
+    <input type="text" id="input_sup"><br><br>
+
+    Número para testar divisibilidade (de 3 a 10):
+    <input type="text" id="input_div"><br><br>
+
+    <button onclick="conta()">Contar</button><br><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function conta(){
+        let inf = Number(input_inf.value);
+        let sup = Number(input_sup.value);
+        let div = Number(input_div.value);
+
+        let contador = inf;
+        let mensagem = '';
+        let qtd = 0;
+        let soma = 0;
+        let maior = 0;
+        let menor = Infinity;
+        let numeros = [];
+        
+        if(inf <= 1){
+           alert(`Limite inferior inválido!`);
+           return;
+        }
+
+        if(sup >= 100 || sup <= inf){
+           alert(`Limite superior inválido!`);
+           return;
+        }
+
+        if(div < 3 || div > 10){
+           alert(`Número para divisibilidade inválida!`);
+           return;
+        }
+
+        while(contador <= sup){
+            if(contador % div == 0){
+                numeros.push(contador);
+                mensagem += numeros.join(', ')
+                qtd++;
+                soma += contador;
+
+
+                if(contador > maior){
+                    maior = contador;
+                }
+
+                if(contador < menor){
+                    menor = contador;
+                }
+            }
+            contador++;
+        }
+
+        let media = soma/qtd;
+
+        mensagem += `<br><br> QUANTIDADE TOTAL DE NÚMEROS EXIBIDOS: ${qtd}`;
+        mensagem += `<br> SOMATÓRIO DOS NÚMEROS EXIBIDOS: ${soma}`;
+        mensagem += `<br> MÉDIA DOS NÚMEROS EXIBIDOS: ${media}`;
+        mensagem += `<br> MAIOR NÚMERO EXIBIDO: ${maior}`;
+        mensagem += `<br> MENOR NÚMERO EXIBIDO:  ${menor}`;
+
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

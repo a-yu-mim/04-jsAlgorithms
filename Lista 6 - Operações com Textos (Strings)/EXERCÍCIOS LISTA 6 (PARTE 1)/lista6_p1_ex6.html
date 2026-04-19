@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+<body>
+  <h2>Observador de Índices</h2>
+
+  Digite uma frase:
+  <input type="text" id="input_frase" oninput="analisar()"><br><br>
+
+  Qual posição deseja ver?
+  <input type="text" id="input_posicao" oninput="analisar()"><br><br>
+  
+  <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+  function analisar() {
+    let frase = input_frase.value;
+    let posicao = Number(input_posicao.value);
+
+// Primeira letra (posição 0) 
+let primeira = frase[0];
+
+// Ủltima letra (tamanho - 1) 
+let ultima = frase[frase.length - 1];
+
+// Letra da posição escothida
+let letraEscolhida = frase[posicao- 1];
+
+// Exibindo resultado
+div_mensagem.innerHTML = `
+  A primeira letra é: ${primeira}<br>
+  A ${posicao}ª letra é: ${letraEscolhida}<br> 
+  A última letra é: ${ultima} `;
+  
+}
+</script>

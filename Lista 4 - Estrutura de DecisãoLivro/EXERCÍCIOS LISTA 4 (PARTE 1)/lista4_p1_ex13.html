@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Análise da c/c (Conta Corrente)</h2>
+
+    Qual seu saldo na conta :
+    <input type="text" id="input_saldo"><br><br>
+
+    Qual valor a tirar da conta :
+    <input type="text" id="input_debito"><br><br>
+
+    <button onclick="calculo()">Analisar conta</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function calculo(){
+        let saldo = Number(input_saldo.value);
+        let debito = Number(input_debito.value);
+        let conta = saldo - debito;
+
+        if(conta >= 0){
+            div_mensagem.innerHTML = `<br><i style="color:blue;">O saldo atual da conta corrente é ${conta}.</i>`; 
+            } else { //saldo < 0
+            div_mensagem.innerHTML = `<br><b><span style="color:red;">O saldo atual da conta corrente é ${conta}.</b></span>`; 
+        }
+}
+
+</script>

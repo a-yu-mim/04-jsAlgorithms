@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <h2>Auxílio Emergencial Covid-19</h2>
+
+     Qual o valor da sua renda individual  :
+     <input type="text" id="input_individual"><br><br>
+
+     qual o valor da renda familiar  :
+     <input type="text" id="input_familiar"> <br><br>
+
+     <button onclick="calcular()">Terei o benefício</button>
+     <div id="mensagem"></div>
+</body>
+</html>
+<script>
+    function calcular(){
+        let individual = Number(input_individual.value);
+        let familiar = Number(input_familiar.value);
+
+    if(individual <= 2000 || familiar <= 3000) {
+    mensagem.innerHTML = `<br>Você terá direito ao auxílio`;
+    } else {
+    mensagem.innerHTML = `<br>Sem direito ao auxílio`;  
+    }
+}
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Detector de Palavras</h2>
+
+    Digite uma frase :  
+    <input type="text" id="input_frase">
+
+    <button onclick=" verificar()">Analisar Frase</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+function verificar(){
+    let frase = input_frase.value;
+    let palavra = frase.includes(`teste`)|| frase.includes(`abc`) || frase.includes(`spam`);
+
+    if(palavra){
+        div_mensagem.innerHTML = `<span style="color: red">Frase Inválida</span>`;
+        } else {
+        div_mensagem.innerHTML = `<span style="color: green">Frase Válida!</span>`;    
+        }
+    }
+    
+</script>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Papagaio Repetitivo</h2>
+
+    Um número:
+    <input type="text" id="input_num"><br><br>
+
+    Uma frase:
+    <input type="text" id="input_frase"><br><br>
+
+    <button onclick="repeticao()">Papagaio Repetitivo</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    
+    function repeticao(){
+        let numero = Number(input_num.value);
+        let frase = input_frase.value;
+        let mensagem = '';
+       
+        let contador = 1;   
+
+        while(contador <= numero){
+            let repeticao = '';
+            let contador_1 = 0;
+
+            while( contador_1 < contador){
+                repeticao += frase + ' ';
+                if(contador_1 < contador -1){
+                    repeticao += ' ';
+                }
+                contador_1++;
+            }
+            
+            mensagem += `${contador} - ${repeticao}<br>`
+            contador++;
+    } 
+    div_mensagem.innerHTML = mensagem;
+    }
+    
+</script>

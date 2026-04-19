@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Melhor Horário para Assistir Netflix: Evite Travamentos!</h2>
+    
+    Qual a hora do dia você costuma acessar a Netflix  : <br><br>
+    <input type="text" id="input_hora">
+
+    <button onclick="calculo()">Ver recomendação</button>
+
+</body>
+</html>
+<script>
+    function calculo(){
+        let hora = Number(input_hora.value);
+
+        if(hora >= 19 && hora <= 21){
+            alert(`Não é recomendável que você assista sua série favorita no horário ${hora}!`);
+        } else {
+            alert(`O horário ${hora} é adequado para assistir sua série favorita!`);
+        }
+
+    }
+    
+</script>

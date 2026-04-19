@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Divisores</h2>
+
+    Insira um número entre 0 a 100:
+    <input type="text" id="input_numero">
+    <button onclick="conta()">Ver Divisores</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function conta(){
+        let numero = Number(input_numero.value);
+        let contador = 1;
+        let mensagem = '';
+
+        if(numero < 0 || numero > 100){
+            alert(`Número deve estar entre 0 e 100!`);
+            return;
+        }
+
+        mensagem += `Dividores do Número ${numero}: <br><br>`;
+
+        while(contador <= numero){
+            if(numero % contador == 0){
+                mensagem += `${contador}<br>`;
+            }
+            contador++;
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

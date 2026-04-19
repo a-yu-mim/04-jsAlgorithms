@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Número 1 : <input type ="text" id="input_n1"><br>
+    Número 2 : <input type ="text" id="input_n2"><br>
+
+    <button onclick="quociente()">Quociente</button>
+    <button onclick="resto()">Resto</button>
+    <button onclick="completo()">Completo</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function quociente(){ 
+    let n1 = Number(input_n1.value);
+    let n2 = Number(input_n2.value);
+div_mensagem.innerHTML = `A divisão de ${n1} por ${n2} é : ${n1/n2}, sendo que ${n1} é o primeiro número recebido, ${n2} é o segundo e ${n1/n2} é o quociente da divisão.` ;
+    }
+    function resto(){ 
+    let n1 = Number(input_n1.value);
+    let n2 = Number(input_n2.value);
+div_mensagem.innerHTML = `O resto da divisão de ${n1} por ${n2} é : ${n1 % n2}, sendo que ${n1} é o primeiro número recebido, ${n2} é o segundo e ${n1 % n2} é o resto da divisão.`;
+    }
+    function completo(){ 
+    let n1 = Number(input_n1.value);
+    let n2 = Number(input_n2.value);
+div_mensagem.innerHTML = `A divisão de ${n1} por ${n2} é : ${n1/n2} e o resto dessa divisão é: ${n1 % n2}, sendo que ${n1} é o primeiro número recebido, ${n2} é o segundo, ${n1/n2} é o quociente da divisão e ${n1 %  n2} é o resto dessa divisão.`;
+    }
+</script>

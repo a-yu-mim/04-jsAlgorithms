@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>É tri/penta!</h2>
+
+    O intervalo começa em :
+    <input type="text" id="ipt_comeca"><br><br>
+
+    E termina em:
+    <input type="text" id="ipt_termina"><br><br>
+
+    <button onclick="funcionar()">Curto 3 e 5 !</button><br><br>
+    <div id="div_mensagem"></div>
+  </body>
+</html>
+<script>
+  function funcionar() {
+    let comeca = Number(ipt_comeca.value);
+    let termina = Number(ipt_termina.value);
+    let contador = comeca - 1;
+    let mensagem = ``;
+
+    while (contador < termina) {
+      contador++;
+      if (contador % 3 == 0 && contador % 5 == 0) {
+        mensagem += `É TRI!É PENTA!<br>`;
+      } else if (contador % 5 == 0) {
+        mensagem += `É PENTA!<br>`;
+      } else if (contador % 3 == 0) {
+        mensagem += `É TRI!<br>`;
+      } else {
+        mensagem += `${contador}<br>`;
+      }
+    }
+    div_mensagem.innerHTML = mensagem;
+  }
+</script>

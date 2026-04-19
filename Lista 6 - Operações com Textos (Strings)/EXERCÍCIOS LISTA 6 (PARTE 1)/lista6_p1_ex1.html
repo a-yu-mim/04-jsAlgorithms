@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Contador de Caracteres</h2>
+
+    Digite uma frase :  
+    <input type="text" id="input_frase">
+
+    <button onclick=" verificar()">Analisar Frase</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+function verificar(){
+
+    let frase = input_frase.value;
+    let tamanho = frase.length;
+
+    div_mensagem.innerHTML = `<br>Tamanho da Frase: ${tamanho}<br>`;
+    
+    if(tamanho < 10){
+        div_mensagem.innerHTML += `<span style="color: red">Frase Curta!</span>`;
+        } else {
+        div_mensagem.innerHTML += `<span style="color: blue">Frase longa!</span>`;    
+        }
+    }
+    
+</script>

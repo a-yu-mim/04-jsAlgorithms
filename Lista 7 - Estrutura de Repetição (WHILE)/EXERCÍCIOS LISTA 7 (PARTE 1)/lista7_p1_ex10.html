@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Pares no Intervalo</h2>
+    Informe o inicio:
+    <input type="text" id="input_num1"><br><br>
+
+    Informe o fim:
+    <input type="text" id="input_num2"><br><br>
+    
+    <button onclick="repeticao()">S2 Pares</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    
+    function repeticao(){
+        let numero1 = Number(input_num1.value);
+        let numero2 = Number(input_num2.value);
+        let mensagem = '';
+        
+if(numero1 < numero2){
+    let contador = numero1;
+
+        while(contador <= numero2){
+            if (contador % 2 == 0){
+                mensagem += `${contador} <br>`;  
+            }
+
+            contador++;
+        } div_mensagem.innerHTML = mensagem;
+
+} else {
+    alert(`Inserir valor valido!`);
+}
+    }
+</script>

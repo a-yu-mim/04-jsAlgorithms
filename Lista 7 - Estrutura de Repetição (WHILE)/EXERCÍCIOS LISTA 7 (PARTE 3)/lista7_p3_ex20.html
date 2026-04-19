@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Divisibilidade</h2>
+
+    Insira um número entre 10 e 500:
+    <input type="text" id="input_numero">
+
+    <button onclick="conta()">Somar Pares</button><br><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function conta(){
+        let numero = Number(input_numero.value);
+        let contador = 1;
+        let mensagem = '';
+        let soma = 0;
+        
+        if(numero < 10 || numero > 500){
+           alert(`Número deve estar entre 10 e 500!`);
+           return;
+        }
+
+        while(contador <= numero){
+            if(contador % 2 == 0){
+                mensagem += `${contador}<br>`
+                soma += contador;
+            }
+            contador++;
+        }
+        mensagem += `<br>Soma dos pares: ${soma}`;
+
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Controle de horas assistindo streaming</h2>
+
+    Qual a última série (SITCOM) que assistiu :
+    <input type="text" id="input_nome"><br><br>
+
+    Quantos episódios assistiu da série :
+    <input type="text" id="input_eps"><br><br>
+
+    <button onclick="calculo()">Verificar nível</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function calculo(){
+        let nome = input_nome.value;
+        let eps = Number(input_eps.value);
+        let tempo = eps * 22;
+
+        div_mensagem.innerHTML = `<br>Vejo que você gosta da série ${nome}.`;
+       
+        if(tempo > 1800){
+        div_mensagem.innerHTML += `<br>Uau, você realmente gosta dessa série!`; 
+        }
+
+    }
+</script>

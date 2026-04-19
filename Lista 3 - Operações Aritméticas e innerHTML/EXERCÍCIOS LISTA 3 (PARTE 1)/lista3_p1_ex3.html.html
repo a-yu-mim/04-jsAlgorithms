@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Valor da passagem:<br>
+    <input  id="input_valor" type="text"> 
+    <br>
+    Quantidade de viagens por mês:<br>
+    <input  id="input_viagens" type="text"> 
+
+    <button onclick="conta()">Ver economia</button> 
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function conta() {
+        div_mensagem.innerHTML = `Você economizará R$${(input_viagens.value * input_valor.value)/2 } por mês`;
+    }
+</script>

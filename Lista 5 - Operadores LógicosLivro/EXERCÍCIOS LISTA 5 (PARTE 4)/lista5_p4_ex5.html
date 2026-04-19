@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <h2>Alerta de Desconforto Térmico</h2>
+
+     Qual a temperatura atual :
+     <input type="text" id="input_temp">
+
+     <button onclick="clima()">Analisar clima</button>
+     <div id="mensagem"></div>
+</body>
+</html>
+<script>
+    function clima(){
+        let clima = select_clima.value;
+
+        //confere depois 
+    if(clima >= 21 || clima <= 24) {
+    alert(`Alerta de desconforto!`);
+    } else if{
+    mensagem.innerHTML += `As pessoas vão ter hipotermia`;  
+    }else {
+    mensagem.innerHTML += `As pessoas vão derreter`;  
+    }
+</script>

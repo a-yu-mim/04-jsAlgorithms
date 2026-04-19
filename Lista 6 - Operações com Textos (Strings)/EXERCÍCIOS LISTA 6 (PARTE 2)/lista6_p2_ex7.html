@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <h2>Filmes em Cores: Azul e Vermelho Alternados</h2>
+
+   Filme:
+   <input type="text" id="input_filme">
+   <button onclick="adicionar()">Adicionar</button>
+   <div id="div_mensagem"></div>
+
+</body>
+</html>
+<script>
+   let listaFilmes = [];
+   
+   function adicionar() {
+      let filme = input_filme.value;
+      let cor = '';
+      let estilo = '';
+
+      if (listaFilmes.length % 2 == 0) {
+         cor = 'blue';
+         background = 'pink'
+      } else {
+         cor = 'red';
+         background = 'yellow';
+      }
+
+      estilo = `style="color: ${cor}; background-color: ${background}"`;
+
+      listaFilmes.push(`<span ${estilo}>${filme}</span>`);
+      
+      div_mensagem.innerHTML = `${listaFilmes.toString().replaceAll(',', '<br>')}`;
+   }
+</script>

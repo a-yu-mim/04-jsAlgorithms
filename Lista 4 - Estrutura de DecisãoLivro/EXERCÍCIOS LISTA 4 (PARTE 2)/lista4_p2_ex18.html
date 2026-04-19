@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Teste de divisibilidade</h2>
+
+    Número 1 :
+    <input type="text" id="input_num1"><br><br>
+
+    Número 2 :
+    <input type="text" id="input_num2"><br><br>
+
+    <button onclick="calculo()">Testar</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function calculo(){
+        let num1 = Number(input_num1.value);
+        let num2 = Number(input_num2.value);
+        let conta = num1 % num2;
+
+        if(conta == 0){
+        div_mensagem.innerHTML = `<img src="./imagem/positivo.png" alt="">`;
+        }else{ 
+        div_mensagem.innerHTML = `<img src="./imagem/negativo.png" alt="">`;      
+     }
+    }
+</script>

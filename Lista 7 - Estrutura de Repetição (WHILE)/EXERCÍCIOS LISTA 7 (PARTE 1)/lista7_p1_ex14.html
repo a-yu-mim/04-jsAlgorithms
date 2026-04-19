@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Dividibilidade</h2>
+
+    Informe o inicio:
+    <input type="text" id="input_inicio"><br><br>
+
+    Informe o fim:
+    <input type="text" id="input_fim"><br><br>
+
+    Número de 3 a 13:
+    <input type="text" id="input_num"><br><br>
+
+    <button onclick="repeticao()">Divisível</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    
+    function repeticao(){
+        let inicio = Number(input_inicio.value);
+        let fim = Number(input_fim.value);
+        let num = Number(input_num.value);
+
+        let mensagem = '';
+
+        if(inicio >= fim){
+            alert(`Intervalo inválido!`);
+            return;
+        }
+
+        if(num < 3 || num > 13){
+            alert(`Número deve estar entre 3 e 13!`);
+            return;
+        }
+            
+        let contador = inicio;
+
+        while(contador <= fim){
+            if(contador % num != 0 ){
+                mensagem += `${contador}<br>`;
+            }
+            contador++;
+        } 
+
+        if(mensagem == ''){
+        mensagem = `Todos são divisiveis!`
+        }
+
+    div_mensagem.innerHTML = mensagem;
+    }
+    
+</script>

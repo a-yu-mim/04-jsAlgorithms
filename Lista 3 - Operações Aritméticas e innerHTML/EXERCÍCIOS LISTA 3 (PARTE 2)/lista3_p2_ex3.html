@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome : <input type="text" id="input_nome"><br><br>
+    Ativ. Avaliativa 1 : <input type="text" id="input_at1"><br>
+    Ativ. Avaliativa 2 : <input type="text" id="input_at2"><br>
+    Ativ. Avaliativa 3 : <input type="text" id="input_at3">
+
+    <button onclick="media()">Mostrar Nota</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function media(){
+    let a1 = Number(input_at1.value);
+    let a2 = Number(input_at2.value);
+    let a3 = Number(input_at3.value);
+    div_mensagem.innerHTML= `<br>A soma das suas três atividades é: ${a1 + a2 + a3}<br> 
+    <br> ${input_nome.value}, a média das suas atividades é: ${(a1 + a2 + a3)/3}`;
+    }
+</script>

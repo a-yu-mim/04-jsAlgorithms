@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+   <h2>Lista Viva de Filmes Favoritos</h2>
+
+   Filme:
+   <input type="text" id="input_filme">
+   <button onclick="adicionar()">Adicionar</button>
+   <div id="div_mensagem"></div>
+
+</body>
+</html>
+<script>
+   let listaFilmes = [];
+   
+   function adicionar() {
+      let filme = input_filme.value;
+
+      listaFilmes.push(filme);
+
+      div_mensagem.innerHTML += `${listaFilmes[listaFilmes.length - 1]} <br>`;
+      input_filme.value = '';
+   }
+</script>

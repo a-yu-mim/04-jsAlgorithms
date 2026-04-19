@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>S2 Pares</h2>
+
+    <button onclick="repeticao()">S2 Pares</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    
+    function repeticao(){
+        let contador = 0;
+        let mensagem = '';
+        
+
+        while(contador <= 100){
+            if (contador % 2 == 0){
+                mensagem += `${contador} <br>`;  
+            }
+            contador++;
+        } div_mensagem.innerHTML = mensagem;
+    }
+    
+</script>

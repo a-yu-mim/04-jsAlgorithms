@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Divisibilidade</h2>
+
+    Insira um número positivo (que será o limite da contagem):
+    <input type="text" id="input_numero"><br><br>
+
+    Insira outro número para testes de divisibilidade:
+    <input type="text" id="input_divisor"><br><br>
+
+    <button onclick="conta()">Somar Números</button><br><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function conta(){
+        let numero = Number(input_numero.value);
+        let divisor = Number(input_divisor.value);
+        let contador = 1;
+        let mensagem = '';
+        let soma = 0;
+        
+        if(divisor < 1 || divisor > numero){
+           alert(`Divisor inválido!`);
+           return;
+        }
+
+        while(contador <= numero){
+            if(contador % divisor == 0){
+                mensagem += `${contador}<br>`
+                soma += contador;
+            }
+            contador++;
+        }
+        mensagem += `<br>Soma dos múltiplos: ${soma}`;
+
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

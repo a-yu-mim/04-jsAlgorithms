@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Login Seguro: Verificação em Duas Etapas!</h2>
+    
+    Login : 
+    <input type="text" id="input_login"><br><br>
+
+    Senha: 
+    <input type="password" id="input_senha"><br><br>
+
+    Código de segurança: 
+    <input type="text" id="input_codigo"><br><br>
+
+    <button onclick="acesso()">Entrar</button>
+
+</body>
+</html>
+<script>
+    function acesso(){
+        let login = input_login.value;
+        let senha = input_senha.value;
+        let codigo = Number(input_codigo.value);
+
+        if(login == `SPTech` && senha == `digital` && codigo == 123){
+            alert(`Usuário autenticado com sucesso`);
+        } else {
+            alert(`Falha na autenticação`);
+        }
+
+    }
+    
+</script>

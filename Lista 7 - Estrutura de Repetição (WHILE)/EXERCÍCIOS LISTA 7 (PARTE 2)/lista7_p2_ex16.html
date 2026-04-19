@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>Treino de Musculação</h2>
+
+    De quantos em quantos dias você faz musculação?
+    <input type="text" id="ipt_dias"><br><br>
+
+    <button onclick="exibir()">Exibir rotina mensa</button>
+    <div id="div_mensagem"></div>
+  </body>
+</html>
+<script>
+  function exibir() {
+    let dias = Number(ipt_dias.value);
+    let contador = 0;
+    let mensagem = ``;
+
+    while (contador < 30) {
+      contador++;
+      if (contador % dias == 1) {
+        mensagem += `Dia ${contador} - Musculação<br>`;
+      } else {
+        mensagem += `Dia ${contador} - Comer, dormir etc<br>`;
+      }
+    }
+    div_mensagem.innerHTML = mensagem;
+  }
+</script>

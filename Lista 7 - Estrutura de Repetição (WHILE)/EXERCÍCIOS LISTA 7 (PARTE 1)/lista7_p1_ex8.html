@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Múltiplos de 5</h2>
+    Insira um número entre 20 e 100:
+    <input type="text" id="input_num">
+    
+    <button onclick="repeticao()">Adoro múltiplos de 5</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    
+    function repeticao(){
+        let contador = 0;
+        let numero = Number(input_num.value);
+        let mensagem = '';
+        
+if(numero => 20 && numero <= 100){
+        while(contador <= numero){
+            if (contador % 5 == 0){
+                mensagem += `${contador} <br>`;  
+            }
+            contador++;
+        } div_mensagem.innerHTML = mensagem;
+    } else {
+    alert(`Inserir valor valido!`);
+    }
+
+    }
+</script>

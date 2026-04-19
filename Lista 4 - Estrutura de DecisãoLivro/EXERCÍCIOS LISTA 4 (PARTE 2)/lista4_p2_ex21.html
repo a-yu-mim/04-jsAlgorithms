@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Análise de frequência do aluno</h2>
+
+    Qual sua freqência:
+    <input type="text" id="input_frequencia"><br><br>
+
+    <button onclick="calculo()">Analisar frequência</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function calculo(){
+        let frequencia = Number(input_frequencia.value);
+
+        if(frequencia < 50){
+        div_mensagem.innerHTML = `<img src="./imagem/turista.jpg" alt="">`;
+         }else{
+        div_mensagem.innerHTML = `<img src="./imagem/aluno.jpg" alt="">`;
+         }
+        }
+
+</script>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Capacidade Flexicel</h2>
+
+    Quantas pessoas vão entrar no carro?<br>
+    <input type="text" id="input_pessoas"><br><br>
+
+    Qual a capacidade maxima de pessoas que o carro suporta?<br>
+    <input type="text" id="input_pessoasMax"><br><br>
+
+    <button onclick="fun()">#PartiuCarona</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function fun(){
+    let mensagem ='';
+    let pessoas = Number(input_pessoas.value);
+    let pessoasMax = Number(input_pessoasMax.value)
+
+    for(let i = 1; i <= pessoas; i++ ){
+       if(i == 1) {
+        mensagem += `Entrou o ${i}º passageiro (que é o(a) motorista)<br>`
+        } else if(i <= pessoasMax){
+        mensagem += `Entrou o ${i}º passageiro<br>`
+        }else{
+        mensagem += `O ${i}º passageiro terá que esperar!<br>`
+        }
+    }
+        div_mensagem.innerHTML = mensagem
+ }
+</script>

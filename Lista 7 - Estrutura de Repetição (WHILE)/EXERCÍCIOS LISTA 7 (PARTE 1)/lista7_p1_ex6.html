@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Filtro de Números Cabalísticos</h2>
+
+    <button onclick="repeticao()">Filtrar números Cabalísticos</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    
+    function repeticao(){
+        let contador = 0;
+        let mensagem = '';
+        let lista = [3, 4, 7, 10, 12];
+        
+
+        while(contador < 30){
+        contador ++; 
+
+            if (!lista.includes(contador)){
+                mensagem += `${contador} <br>`;  
+            }
+
+        } div_mensagem.innerHTML = mensagem;
+    }
+    
+</script>

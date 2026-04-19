@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <h2>Juliane Joada e Suas Frutas Preferidas</h2>
+
+     O nome da fruta que chegou na mesa:
+     <input type="text" id="input_fruta">
+
+     <button onclick="calcular()">Vai comer?</button>
+
+</body>
+</html>
+<script>
+    function calcular(){
+        let fruta = input_fruta.value;
+
+    if(fruta == `uva` || fruta == `abacaxi`) {
+    alert(`Sim, vai comer ${fruta}`);
+    } else {
+    alert(`A fruta ${fruta} ela não come`);  
+    }
+}
+</script>

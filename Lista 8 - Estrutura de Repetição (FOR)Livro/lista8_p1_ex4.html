@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Bônus Bancário Inteligente</h2>
+
+    Quantos depósitos você fez no banco?<br>
+    <input type="number" id="input_qtd"><br><br>
+
+    Qual o valor de cada depósito?<br>    
+    <input type="number" id="input_valor"><br><br>
+
+    <button onclick="fun()">Acompanhar grana</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function fun(){
+    let qtd = Number(input_qtd.value);
+    let valor = Number(input_valor.value)
+    let mensagem ='';
+    let soma = 0;
+
+    for(let i = 1; i <= qtd; i++ ){
+        soma += valor;
+
+       if(i % 3 == 0){ 
+        soma = soma * 1.01;
+        } 
+        
+        mensagem += `${i}º Mês: R$${soma.toFixed(2)}<br>`
+    }
+    div_mensagem.innerHTML = mensagem + `<br>Total guardado: R$${soma.toFixed(2)}`
+}
+</script>

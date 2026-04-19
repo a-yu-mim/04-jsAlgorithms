@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <h2>Simulador de Preferências de Compras: Será que Robervaldo Gostaria?</h2>
+
+     Tamanho da tela :
+     <input type="text" id="input_tela"><br><br>
+
+     Cor :
+     <select id="select_cor">
+        <option>Preto</option>
+        <option>Prata</option>
+        <option>Azul</option>
+        <option>Vermelho</option>
+     </select>
+     <br><br>
+
+     <button onclick="calculo()">Será que ele gosta?</button>
+     <div id="mensagem"></div>
+</body>
+</html>
+<script>
+    function calculo(){
+        let tela = Number(input_tela.value);
+        let cor = select_cor.value;
+
+    if(tela > 6.5 && (cor ==`Preto`|| cor == `Prata`)) {
+    mensagem.innerHTML = `<img src="./imagem/feliz.png" alt="">`; 
+    } else { 
+    mensagem.innerHTML = `<img src="./imagem/decepsionada.png" alt="">`; 
+    } 
+} 
+</script>

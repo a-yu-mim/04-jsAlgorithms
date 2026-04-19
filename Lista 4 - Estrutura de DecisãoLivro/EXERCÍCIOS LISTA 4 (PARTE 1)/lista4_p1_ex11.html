@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Análise CNH</h2>
+
+    Nome :
+    <input type="text" id="input_nome"><br><br>
+
+    Idade :
+    <input type="text" id="input_idade"><br><br>
+
+    <button onclick="cnh()">Avaliar aluno</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function cnh(){
+        let nome = input_nome.value;
+        let idade = Number(input_idade.value);
+       
+        if(idade >= 18){
+        div_mensagem.innerHTML = `<br>${nome}, vamos tirar a CNH?`; 
+        } else {div_mensagem.innerHTML = `<br>${nome}, vai jogar PlayStation!`; 
+}
+
+    }
+</script>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+<body>
+  <h2>Senha forte ou fraca</h2>
+
+  Senha:
+  <input type="text" id="input_senha" oninput="validar()">
+    
+  <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+  function validar() {
+    let senha = input_senha.value;
+    let forca = 0; // -> (força)
+
+  // Se tiver o tamanho mínimo de 8 caracteres, soma 1 ponto
+  if (senha.length >= 8) {
+    forca++;
+    }
+
+  // Se a senha possuir letra MAIÚSCULA, soma mais 1 ponto
+  if (senha != senha.toLowerCase()) {
+    forca++;
+    }
+
+  // Se a senha possuir letra minúscula, soma mais 1 ponto
+  if (senha != senha.toUpperCase()) {
+    forca++;
+    }
+
+  // Apresentar classificação final da senha
+  if (forca == 3) {
+    div_mensagem.innerHTML = `A senha é forte`;
+    } else if (forca == 2) {
+    div_mensagem.innerHTML = `A senha é média`;
+    } else if (forca == 1) {
+    div_mensagem.innerHTML = `A senha é fraca`;
+    } else {
+    div_mensagem.innerHTML = `A senha é insegura`;
+    }
+  }
+</script>
