@@ -26,12 +26,10 @@
     function fun(){
         let comida = input_comida.value;
 
-        if(comida == ''){
-            alert('Digite uma comida para cadastrar!');
-            return;
+        if(comida != ''){
+            lista.push(comida);
         }
 
-        lista.push(comida);
         input_comida.value = '';
     }
 
