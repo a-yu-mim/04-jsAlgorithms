@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+
+.box {
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 0;
+}
+
+</style>
+</head>
+<body>
+    Vetor :
+    <input type="text" id="input_num1" placeholder="Adicionar número ao vetor">
+    <button onclick="obterVetor()">Adicionar</button><br><br>
+    <div id="div_mensagem"></div>
+
+    <div class="box">
+    Retorna a soma de todos os elementos do vetor.<br>
+    <button onclick="verificar4()">Verificar 4</button><br><br>
+    <div id="div_mensagem_4"></div>
+    </div>
+
+    <div class="box">
+    Retorne o maior valor presente no vetor.<br>
+    <button onclick="verificar5()">Verificar 5</button><br><br>
+    <div id="div_mensagem_5"></div>
+    </div>
+
+    <div class="box">
+    Retorne o menor valor presente no vetor.<br>
+    <button onclick="verificar6()">Verificar 6</button><br><br>
+    <div id="div_mensagem_6"></div>
+    </div>
+
+    <div class="box">
+    Retorne a média dos valores.<br>
+    <button onclick="verificar7()">Verificar 7</button><br><br>
+    <div id="div_mensagem_7"></div>
+    </div>
+
+    <div class="box">
+    Retorne um novo vetor contendo apenas os números pares do vetor original.<br>
+    <button onclick="verificar8()">Verificar 8</button><br><br>
+    <div id="div_mensagem_8"></div>
+    </div>
+
+    <div class="box">
+    Retorne um novo vetor contendo apenas os números ímpares do vetor original.<br>
+    <button onclick="verificar9()">Verificar 9</button><br><br>
+    <div id="div_mensagem_9"></div>
+    </div>
+
+    <div class="box">
+    Retorne a quantidade de elementos pares no vetor.<br>
+    <button onclick="verificar10()">Verificar 10</button><br><br>
+    <div id="div_mensagem_10"></div>
+    </div>
+
+    <div class="box">
+    Retorne a quantidade de elementos ímpares no vetor.<br>
+    <button onclick="verificar11()">Verificar 11</button><br><br>
+    <div id="div_mensagem_11"></div>
+    </div>
+
+    <div class="box">
+    Retorne a quantidade de vezes que esse valor aparece no vetor.<br>
+    <input type="text" id="input_num2" placeholder="Valor para buscar">
+    <button onclick="verificar12()">Verificar 12</button><br><br>
+    <div id="div_mensagem_12"></div>
+    </div>
+
+    <div class="box">
+    Retorne true se todos os elementos do vetor forem positivos, ou false caso contrário.<br>
+    <button onclick="verificar13()">Verificar 13</button><br><br>
+    <div id="div_mensagem_13"></div>
+    </div>
+</body>
+</html>
+<script>
+let vetor = [];
+
+function obterVetor(){
+    let num1 = Number(input_num1.value)
+    vetor.push(num1);
+
+    div_mensagem.innerHTML = `${vetor}`;
+    input_num1.value = '';
+}
+    
+
+//------------------Exercício 4:-------------------
+function verificar4(){
+    let soma = 0;
+
+    for(let i = 0; i < vetor.length; i++){
+        soma += vetor[i];
+    }
+    
+    div_mensagem_4.innerHTML = soma;
+    return soma;
+}
+
+//------------------Exercício 5:-------------------
+
+function verificar5(){
+    let maior = vetor[0];
+
+    for(let i = 0; i < vetor.length; i++){
+        if(vetor[i] > maior){
+            maior = vetor[i];
+        }
+    }
+
+    div_mensagem_5.innerHTML = maior;
+    return maior;
+}
+
+//------------------Exercício 6:-------------------
+
+function verificar6(){
+    let menor = vetor[0];
+
+    for(let i = 0; i < vetor.length; i++){
+        if(vetor[i] < menor){
+            menor = vetor[i];
+        }
+    }
+    div_mensagem_6.innerHTML = menor;
+    return menor;
+}
+
+//------------------Exercício 7:-------------------
+
+function verificar7(){
+    let soma = 0;
+    let media = 0
+
+    for(let i = 0; i < vetor.length; i++){
+        soma += vetor[i];
+    }
+    media = soma/ vetor.length
+
+    div_mensagem_7.innerHTML = media;
+    return media;
+}
+
+//------------------Exercício 8:-------------------
+function verificar8(){
+    let vetorNovo1 = [];
+
+    for(let i = 0; i < vetor.length; i++){
+        if(vetor[i] % 2 == 0 ){
+            vetorNovo1.push(vetor[i])
+        }
+    }
+    div_mensagem_8.innerHTML = vetorNovo1;
+    return vetorNovo1;
+}
+
+//------------------Exercício 9:-------------------
+function verificar9(){
+    let vetorNovo2 = [];
+
+    for(let i = 0; i < vetor.length; i++){
+        if(vetor[i] % 2 != 0 ){
+            vetorNovo2.push(vetor[i])
+        }
+    }
+    div_mensagem_9.innerHTML = vetorNovo2;
+    return vetorNovo2;
+}
+
+//------------------Exercício 10:-------------------
+function verificar10(){
+    let contador = 0;
+
+    for(let i = 0; i < vetor.length; i++){
+        if(vetor[i] % 2 == 0 ){
+            contador++;
+        }
+    }
+    div_mensagem_10.innerHTML = contador;
+    return contador;
+}
+
+//------------------Exercício 11:-------------------
+function verificar11(){
+    let contador = 0;
+
+    for(let i = 0; i < vetor.length; i++){
+        if(vetor[i] % 2 != 0 ){
+            contador++
+        }
+    }
+    div_mensagem_11.innerHTML = contador;
+    return contador;
+}
+
+//------------------Exercício 12:-------------------
+function verificar12(){
+    let qtd = Number(input_num2.value);
+    let contador = 0;
+
+    for(let i = 0; i < vetor.length; i++){
+        if(vetor[i] == qtd){
+            contador++
+        }
+    }
+    div_mensagem_12.innerHTML = contador;
+    return contador;
+}
+
+//------------------Exercício 13:-------------------
+function verificar13(){
+    for(let i = 0; i < vetor.length; i++){
+        if(vetor[i] >= 0){
+            div_mensagem_13.innerHTML = true;
+            return;
+        }
+    }
+    div_mensagem_13.innerHTML = false;
+    return;
+}
+</script>

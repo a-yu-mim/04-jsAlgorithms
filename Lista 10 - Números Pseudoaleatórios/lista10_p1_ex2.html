@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="sorteio()">Sortear time</button>
+    <div id="div_num"></div>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function sorteio(){
+        let num = ((Math.random() * 4).toFixed(0));
+        let img = "";
+
+        div_num.innerHTML = num;
+
+        if(num == 0){
+            img = "./img/corinthians.png";
+        } else if(num == 1){
+            img = "./img/palmeiras.png";
+        } else if(num == 2){
+            img = "./img/santos.png";
+        } else {
+            img = "./img/saopaulo.png";
+        }
+
+        div_mensagem.innerHTML = `<img src="${img}" style="height: 150px;">`;
+    }
+</script>

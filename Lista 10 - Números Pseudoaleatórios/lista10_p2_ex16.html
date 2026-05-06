@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Número da Sorte</title>
+</head>
+<body>
+    Nome:<br>
+    <input id="input_nome"><br><br>
+
+    Número da sorte (1 a 10):<br>
+    <input id="input_numero"><br><br>
+
+    <button onclick="sortear()">Sortear</button><br><br>
+    <div id="div_mensagem"></div>
+
+    <script>
+        let sorteios = 0;
+
+        function sortear() {
+            let nome = input_nome.value;
+            let numeroSorte = Number(input_numero.value);
+
+            if (numeroSorte < 1 || numeroSorte > 10) {
+                alert("Digite um número inteiro da sorte entre 1 e 10.");
+                return;
+            }
+
+            sorteios++;
+            let numeroSorteado = Number((Math.random() * 9 + 1).toFixed(0));
+
+            if (numeroSorteado == numeroSorte) {
+                div_mensagem.innerHTML = "Parabéns, " + nome + " você foi sorteado(a) após " + sorteios + " sorteios!";
+            } else {
+                div_mensagem.innerHTML = "Número sorteado: " + numeroSorteado;
+            }
+        }
+    </script>
+</body>
+</html>

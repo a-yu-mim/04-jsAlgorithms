@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pares e Ímpares</title>
+</head>
+<body>
+    <div id="div_pares">Números pares: 0</div>
+    <div id="div_impares">Números ímpares: 0</div><br>
+
+    <button onclick="sortearNumero()">Sortear número</button><br><br>
+    <div id="div_numero"></div>
+
+    <script>
+        let pares = 0;
+        let impares = 0;
+
+        function sortearNumero() {
+            let numero = Number(((Math.random() * 21) - 30).toFixed(0));
+            div_numero.innerHTML = "Número sorteado: " + numero;
+
+            if (numero % 2 == 0) {
+                pares++;
+            } else {
+                impares++;
+            }
+
+            div_pares.innerHTML = "Números pares: " + pares;
+            div_impares.innerHTML = "Números ímpares: " + impares;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Dados</title>
+</head>
+<body>
+    <button onclick="jogar1()">Dado Jogador 1</button><br><br>
+    <div id="div_dado1">Jogador 1: -</div><br>
+
+    <button onclick="jogar2()">Dado Jogador 2</button><br><br>
+    <div id="div_dado2">Jogador 2: -</div><br>
+
+    <button onclick="comparar()">Comparar Resultados</button><br><br>
+    <div id="div_resultado"></div>
+
+    <script>
+        let dado1 = "";
+        let dado2 = "";
+
+        function jogar1() {
+            dado1 = Number((Math.random() * 5 + 1).toFixed(0));
+            div_dado1.innerHTML = "Jogador 1: " + dado1;
+        }
+
+        function jogar2() {
+            dado2 = Number((Math.random() * 5 + 1).toFixed(0));
+            div_dado2.innerHTML = "Jogador 2: " + dado2;
+        }
+
+        function comparar() {
+            if (dado1 == "" || dado2 == "") {
+                div_resultado.innerHTML = "Jogue os dois dados primeiro.";
+            } else if (dado1 > dado2) {
+                div_resultado.innerHTML = "Jogador 1 venceu";
+            } else if (dado2 > dado1) {
+                div_resultado.innerHTML = "Jogador 2 venceu";
+            } else {
+                div_resultado.innerHTML = "Empate!";
+            }
+        }
+    </script>
+</body>
+</html>

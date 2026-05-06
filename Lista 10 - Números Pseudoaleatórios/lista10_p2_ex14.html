@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fases da Lua</title>
+</head>
+<body>
+    <button onclick="verLua()">Ver a Lua</button><br><br>
+    <div id="div_dia"></div>
+    <div id="div_fase"></div>
+
+    <script>
+        function verLua() {
+            let dia = Number((Math.random() * 30 + 1).toFixed(0));
+            let fase = "";
+
+            if (dia <= 7) {
+                fase = "Lua nova";
+            } else if (dia <= 16) {
+                fase = "Lua cheia";
+            } else if (dia <= 22) {
+                fase = "Lua minguante";
+            } else {
+                fase = "Lua crescente";
+            }
+
+            div_dia.innerHTML = "Dia sorteado: " + dia;
+            div_fase.innerHTML = fase;
+        }
+    </script>
+</body>
+</html>

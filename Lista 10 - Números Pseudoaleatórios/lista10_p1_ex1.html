@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="sorteio()">Sorteio</button>
+    <div id="div_num"></div>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function sorteio(){
+        let num = Math.random();
+
+        div_num.innerHTML = num.toFixed(4);
+
+        if(num > 0.5){
+            div_mensagem.innerHTML = "Eu arredondaria para 1";
+        } else {
+            div_mensagem.innerHTML = "Eu arredondaria para 0";
+        }
+    }
+</script>

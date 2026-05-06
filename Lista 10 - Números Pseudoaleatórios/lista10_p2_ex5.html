@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento</title>
+</head>
+<body>
+    <button onclick="jogar()">Jogar</button><br><br>
+    Jogador 1
+    <div id="div_jogador1">?</div><br>
+
+    Jogador 2
+    <div id="div_jogador2"></div><br>
+    <div id="div_resultado"></div>
+    <div id="div_placar">Jogador 1: 0 vitória(s)<br>Jogador 2: 0 vitória(s)</div>
+    
+</body>
+</html>
+<script>
+    let vitorias1 = 0;
+    let vitorias2 = 0;
+
+    function jogar(){
+        let op1 = Number((Math.random() * 2).toFixed(0));
+        let op2 = Number((Math.random() * 2).toFixed(0));
+        let figura1 = "";
+        let figura2 = "";
+
+        if (op1 == 0) {
+            figura1 = "✊";
+        } else if (op1 == 1) {
+            figura1 = "✋";
+        } else {
+            figura1 = "✌";
+        }
+
+        if (op2 == 0) {
+            figura2 = "✊";
+        } else if (op2 == 1) {
+            figura2 = "✋";
+        } else {
+            figura2 = "✌";
+        }
+
+        div_jogador1.innerHTML = figura1;
+        div_jogador2.innerHTML = figura2;
+
+        if (op1 == op2) {
+            div_resultado.innerHTML = "Empate!";
+        } else if ((op1 == 0 && op2 == 2) || (op1 == 1 && op2 == 0) || (op1 == 2 && op2 == 1)) {
+            vitorias1++;
+            div_resultado.innerHTML = "O jogador 1 venceu!";
+        } else {
+            vitorias2++;
+            div_resultado.innerHTML = "O jogador 2 venceu!";
+        }
+
+        div_placar.innerHTML = "Jogador 1: " + vitorias1 + " vitória(s)<br>Jogador 2: " + vitorias2 + " vitória(s)";
+    }
+</script>

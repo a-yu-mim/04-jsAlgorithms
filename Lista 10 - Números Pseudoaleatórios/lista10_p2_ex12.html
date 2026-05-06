@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Média das Avaliações</title>
+</head>
+<body>
+    <button onclick="avaliar()">Avaliar</button>
+    <button onclick="verificarMedia()">Verificar Média</button><br><br>
+    <div id="div_nota"></div>
+    <div id="div_emoji"></div>
+    <div id="div_media"></div>
+    <div id="div_emoji_media"></div>
+
+    <script>
+        let soma = 0;
+        let qtd = 0;
+
+        function avaliar() {
+            let nota = (Math.random() * 5).toFixed(1);
+            soma += Number(nota);
+            qtd++;
+
+            div_nota.innerHTML = "Nota recebida: " + nota;
+
+            if (nota <= 0.5) {
+                div_emoji.innerHTML = "Muito Triste: 😭";
+            } else if (nota <= 1.5) {
+                div_emoji.innerHTML = "Meio Triste: 🙁";
+            } else if (nota <= 3.5) {
+                div_emoji.innerHTML = "Neutro: 😐";
+            } else if (nota <= 4.5) {
+                div_emoji.innerHTML = "Feliz: 🙂";
+            } else {
+                div_emoji.innerHTML = "Muito Feliz: 😄";
+            }
+        }
+
+        function verificarMedia() {
+            if (qtd == 0) {
+                div_media.innerHTML = "Nenhuma avaliação realizada.";
+                div_emoji_media.innerHTML = "";
+                return;
+            }
+
+            let media = (soma / qtd).toFixed(1);
+            div_media.innerHTML = "Média geral: " + media;
+
+            if (media <= 0.5) {
+                div_emoji_media.innerHTML = "Muito Triste: 😭";
+            } else if (media <= 1.5) {
+                div_emoji_media.innerHTML = "Meio Triste: 🙁";
+            } else if (media <= 3.5) {
+                div_emoji_media.innerHTML = "Neutro: 😐";
+            } else if (media <= 4.5) {
+                div_emoji_media.innerHTML = "Feliz: 🙂";
+            } else {
+                div_emoji_media.innerHTML = "Muito Feliz: 😄";
+            }
+        }
+    </script>
+</body>
+</html>

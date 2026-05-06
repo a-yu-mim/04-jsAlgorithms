@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Retorna true caso o número seja positivo e false caso contrário.<br>
+    <input type="text" id="input_num" placeholder="Número">
+    <button onclick="verificar()">Verificar</button><br><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+//------------------Exercício 1:-------------------
+function verificar(){
+    let num = Number(input_num.value);
+
+    if(num >= 0){
+        div_mensagem.innerHTML = true;
+        return ;
+    } else {
+        div_mensagem.innerHTML = false;
+        return ;
+    }
+}
+
+</script>

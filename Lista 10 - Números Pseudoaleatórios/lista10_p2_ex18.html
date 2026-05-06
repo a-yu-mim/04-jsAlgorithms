@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placar de Dados</title>
+</head>
+<body>
+    <div id="div_j1">Jogador 1: 0</div>
+    <div id="div_j2">Jogador 2: 0</div>
+    <div id="div_empate">Empate: 0</div><br>
+
+    <button onclick="jogar()">Jogar</button><br><br>
+    <div id="div_mensagem"></div>
+
+    <script>
+        let placar1 = 0;
+        let placar2 = 0;
+        let empates = 0;
+
+        function jogar() {
+            let dado1 = Number((Math.random() * 5 + 1).toFixed(0));
+            let dado2 = Number((Math.random() * 5 + 1).toFixed(0));
+
+            if (dado1 > dado2) {
+                placar1++;
+            } else if (dado2 > dado1) {
+                placar2++;
+            } else {
+                empates++;
+            }
+
+            div_j1.innerHTML = "Jogador 1: " + placar1;
+            div_j2.innerHTML = "Jogador 2: " + placar2;
+            div_empate.innerHTML = "Empate: " + empates;
+
+            if (placar1 > placar2) {
+                div_mensagem.innerHTML = "O jogador 1 está vencendo!";
+            } else if (placar2 > placar1) {
+                div_mensagem.innerHTML = "O jogador 2 está vencendo!";
+            } else {
+                div_mensagem.innerHTML = "O jogo está empatado!";
+            }
+        }
+    </script>
+</body>
+</html>

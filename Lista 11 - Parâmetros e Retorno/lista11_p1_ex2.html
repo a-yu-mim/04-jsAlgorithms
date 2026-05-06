@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Retorne true caso o texto contenha vogais (não vale usar includes!)<br>
+    <input type="text" id="input_texto" placeholder="texto">
+    <button onclick="verificar()">Verificar</button><br><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+//------------------Exercício 2:-------------------
+function verificar(){
+    let texto = input_texto.value;
+    let vogais = "aeiouAEIOU";
+
+    for(let i = 0; i < texto.length; i++){
+        for(let j = 0; j < vogais.length; j++){
+            if(texto[i] == vogais[j]){
+                div_mensagem.innerHTML = true;
+                return true;
+            }
+        }
+    }
+    div_mensagem.innerHTML = false;
+    return false;
+}
+
+</script>
