@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome do jogo:<br>
+    <input type="text" id="input_nome"><br><br>
+
+    Empresa:<br>
+    <input type="text" id="input_empresa"><br><br>
+
+    Plataforma:<br>
+    <input type="text" id="input_plataforma"><br><br>
+    <button onclick="cadastrar()">Cadastrar Jogo</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function cadastrar(){
+        let jogo = {
+            nome: input_nome.value,
+            empresa: input_empresa.value,
+            plataforma: input_plataforma.value
+        }
+
+        jogo.nome = jogo.nome.toUpperCase();
+        jogo.empresa = jogo.empresa.toLowerCase();
+
+        div_mensagem.innerHTML += `
+        Jogo: ${jogo.nome}<br>
+        Empresa: ${jogo.empresa}<br>
+        Plataforma: ${jogo.plataforma}<br><br>
+        `
+    }
+</script>

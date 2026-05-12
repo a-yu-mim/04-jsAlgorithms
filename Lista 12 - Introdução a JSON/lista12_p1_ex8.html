@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome do comprador:<br> 
+    <input type="text" id="input_nome"><br><br>
+    E-mail do comprador:<br> 
+    <input type="text" id="input_email"><br><br>
+    Nome do produto:<br> 
+    <input type="text" id="input_produto"><br><br>
+    Valor do produto:<br> 
+    <input type="text" id="input_valor"><br><br>
+
+    <button onclick="comprar()">Finalizar Comprar</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function comprar(){
+        let comprador = {
+            nome: input_nome.value,
+            email: input_email.value
+        }
+
+        let produto = {
+            nome: input_produto.value,
+            valor: Number(input_valor.value)
+        }
+
+        div_mensagem.innerHTML += `
+        Comprador: ${comprador.nome} | ${comprador.email}<br>
+        Produto: ${produto.nome}
+        Valor: R$ ${produto.valor}
+        `
+    }
+</script>

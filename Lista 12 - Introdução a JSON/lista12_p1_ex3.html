@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome do produto:<br>
+    <input type="text" id="input_nome"><br><br>
+
+    Quantidade de estoque:<br>
+    <input type="text" id="input_qtd"><br><br>
+
+    Preço:<br>
+    <input type="text" id="input_preco"><br><br>
+    <button onclick="cadastrar()">Cadastrar Produto</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function cadastrar(){
+        let produto = {
+            nome: input_nome.value,
+            qtd: Number(input_qtd.value),
+            preco: Number(input_preco.value)
+        }
+
+        produto.qtd = produto.qtd + 10;
+        produto.valorTotal = produto.qtd * produto.preco;
+
+        div_mensagem.innerHTML += `
+        Produto: ${produto.nome}<br>
+        Quantidade Atualizada: ${produto.qtd}<br>
+        Preço Unitário: R$ ${produto.preco}<br>
+        Valor Total: R$ ${produto.valorTotal}<br><br>
+        `
+    }
+</script>

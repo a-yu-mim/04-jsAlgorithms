@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome do Filme:<br>
+    <input type="text" id="input_nome"><br><br>
+
+    Gênero:<br>
+    <input type="text" id="input_genero"><br><br>
+
+    Nota:<br>
+    <input type="text" id="input_nota"><br><br>
+    <button onclick="cadastrar()">Cadastrar Film</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function cadastrar(){
+        let filme = {
+            nome: input_nome.value,
+            genero: input_genero.value,
+            nota: Number(input_nota.value)
+        }
+
+        if(filme.nota >= 8){
+            filme.classificacao = `Filme Excelente`;
+        } else {
+            filme.classificacao = `Filme Regular`;
+        }
+
+        div_mensagem.innerHTML += `
+        Filme: ${filme.nome}<br>
+        Gênero: ${filme.genero}<br>
+        Nota: ${filme.nota}<br>
+        Classificação: ${filme.classificacao}<br><br>
+        `
+    }
+</script>

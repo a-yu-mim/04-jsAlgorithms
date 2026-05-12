@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome do pet:<br>
+    <input type="text" id="input_nome"><br><br>
+
+    Tipo do animal:<br>
+    <input type="text" id="input_tipo"><br><br>
+
+    Idade:<br>
+    <input type="text" id="input_idade"><br><br>
+    <button onclick="cadastrar()">Cadastrar Pet</button>
+    <button onclick="exibir()">Exibir</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    let lista = [];
+     let mensagem = '';
+
+    function cadastrar(){
+        let usuario = {
+            nome: input_nome.value,
+            tipo: input_tipo.value,
+            idade: input_idade.value
+        }
+
+        lista.push(usuario)
+        console.log(lista)
+        
+    }
+
+    function exibir(){
+       for (let i = 0; i< lista.length; i++){
+        let petAtual = lista[i]
+
+        mensagem += `
+        Pet: ${petAtual.nome}<br>
+        Tipo: ${petAtual.tipo}<br>
+        Idade: ${petAtual.idade} anos<br><br>
+        `
+    }
+        div_mensagem.innerHTML = mensagem;
+    }
+
+
+</script>
