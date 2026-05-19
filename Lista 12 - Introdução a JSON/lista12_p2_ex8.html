@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Despesa:<br>
+    <input type="text" id="input_nome"><br>
+    Valor:<br>
+    <input type="text" id="input_valor"><br><br>
+
+    <button onclick="cadastrar()">Cadastrar Despesa</button>
+    <button onclick="resumo()">Resumo das Despesas</button><br><br>
+
+    <select id="select_filtro">
+        <option value="acima">Despesas acima de</option>
+        <option value="abaixo">Despesas abaixo de</option>
+    </select>
+
+    <input type="text" id="input_filtro" placeholder="Valor">
+    <button onclick="filtrar()">Filtrar Despesas</button><br><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    let despesas = [];
+
+    function cadastrar() {
+        let valor = Number(input_valor.value);
+        if (valor > 0) {
+
+            let despesa = { 
+                nome: input_nome.value, 
+                valor: valor
+            };
+
+            despesas.push(despesa);
+
+            input_nome.value = "";
+            input_valor.value = "";
+            
+            div_mensagem.innerHTML = "Despesa cadastrada com sucesso!<br>";
+        } else {
+            div_mensagem.innerHTML = "O valor deve ser positivo.<br>";
+        }
+    }
+
+    function resumo() {
+        let total = 0;
+        let mensagem = `Você tem ${despesas.length} despesas cadastradas:<br><br>`;
+        for (let i = 0; i < despesas.length; i++) {
+            mensagem += `${despesas[i].nome} - R$ ${despesas[i].valor}<br>`;
+            total += despesas[i].valor;
+        }
+        mensagem += `<br>Total gasto: R$ ${total}<br>`;
+        div_mensagem.innerHTML = mensagem;
+    }
+
+    function filtrar() {
+        let valor = Number(input_filtro.value);
+        let opcao = select_filtro.value;
+        let mensagem = "";
+        
+        for (let i = 0; i < despesas.length; i++) {
+            if (opcao == "acima" && despesas[i].valor > valor) {
+                mensagem += `${despesas[i].nome} - R$ ${despesas[i].valor}<br>`;
+            } else if (opcao == "abaixo" && despesas[i].valor < valor) {
+                mensagem += `${despesas[i].nome} - R$ ${despesas[i].valor}<br>`;
+            }
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

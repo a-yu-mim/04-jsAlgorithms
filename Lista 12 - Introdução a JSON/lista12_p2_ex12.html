@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome do filme:<br>
+    <input type="text" id="input_nome"><br>
+    Gênero:<br>
+    <input type="text" id="input_genero"><br><br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="listar()">Listar Filmes</button><br><br>
+
+    De: <br>
+    <input type="text" id="input_de"><br>
+    Até: <br>
+    <input type="text" id="input_ate"><br><br>
+    <button onclick="filtrarRegistro()">Filtrar Filmes por Registro</button><br><br>
+
+    Gênero: <br>
+    <input type="text" id="input_genero_filtro"><br><br>
+    <button onclick="filtrarGenero()">Filtrar Filmes por Gênero</button><br><br>
+
+    <div id="div_contador"></div>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    let filmes = [];
+
+    function cadastrar() {
+        let filme = {
+            nome: input_nome.value,
+            genero: input_genero.value
+        };
+
+        filmes.push(filme);
+
+        input_nome.value = "";
+        input_genero.value = "";
+
+        div_contador.innerHTML = `Você já assistiu ${filmes.length} filmes`;
+    }
+
+    function listar() {
+        let mensagem = "";
+
+        for (let i = filmes.length - 1; i >= 0; i--) {
+            mensagem += `${i + 1}. ${filmes[i].nome} - ${filmes[i].genero}<br>`;
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+
+    function filtrarRegistro() {
+        let de = Number(input_de.value) - 1;
+        let ate = Number(input_ate.value) - 1;
+        let mensagem = "";
+
+        for (let i = ate; i >= de; i--) {
+            if (filmes[i] != '') {
+                mensagem += `${i + 1}. ${filmes[i].nome} - ${filmes[i].genero}<br>`;
+            }
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+
+    function filtrarGenero() {
+        let genero = input_genero_filtro.value;
+        let mensagem = "";
+        
+        for (let i = 0; i < filmes.length; i++) {
+            if (filmes[i].genero == genero) {
+                mensagem += `${i + 1}. ${filmes[i].nome} - ${filmes[i].genero}<br>`;
+            }
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

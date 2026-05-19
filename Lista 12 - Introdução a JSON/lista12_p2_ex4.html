@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome do alimento:<br>
+    <input type="text" id="input_nome"><br>
+    Quantidade:<br>
+    <input type="text" id="input_quantidade">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="atualizarLista()">Atualizar Lista</button><br><br>
+    
+    <select id="select_filtro">
+        <option value="maior">Quantidade maior que</option>
+        <option value="menor">Quantidade menor que</option>
+    </select>
+
+    <input type="text" id="input_valor" placeholder="Valor">
+    <button onclick="filtrar()">Filtrar Alimentos</button><br><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    let alimentos = [];
+
+    function cadastrar() {
+        let mensagem = '';
+
+        if (nome.length >= 3 && quantidade > 0) {
+
+            let alimento = { 
+                nome: input_nome.value, 
+                quantidade: Number(input_quantidade.value) 
+            };
+
+            alimentos.push(alimento);
+            mensagem = "Alimento cadastrado com sucesso!<br><br>";
+
+        } else if (nome.length < 3) {
+            mensagem = "O nome deve conter ao menos 3 letras.<br><br>";
+        } else {
+            mensagem = "A quantidade deve ser maior que zero.<br><br>";
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+
+    function atualizarLista() {
+        let mensagem = `Você tem ${alimentos.length} alimentos cadastrados:<br><br>`;
+
+        for (let i = 0; i < alimentos.length; i++) {
+            mensagem += `${alimentos[i].nome} - ${alimentos[i].quantidade} unidades<br>`;
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+
+    function filtrar() {
+        let valor = Number(input_valor.value);
+        let opcao = select_filtro.value;
+        let mensagem = "";
+
+        for (let i = 0; i < alimentos.length; i++) {
+
+            if (opcao == "maior" && alimentos[i].quantidade > valor) {
+                mensagem += `${alimentos[i].nome} - ${alimentos[i].quantidade} unidades<br>`;
+            } else if (opcao == "menor" && alimentos[i].quantidade < valor) {
+                mensagem += `${alimentos[i].nome} - ${alimentos[i].quantidade} unidades<br>`;
+            }
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

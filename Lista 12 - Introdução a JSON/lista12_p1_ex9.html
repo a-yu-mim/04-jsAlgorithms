@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Destino:<br>
+    <input type="text" id="input_destino"><br>
+    Preço da viagem:<br>
+    <input type="text" id="input_preco"><br>
+    Quantidade de dias:<br>
+    <input type="text" id="input_dias">
+    <button onclick="cadastrar()">Cadastrar Viagem</button><br><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function cadastrar(){
+        let viagem = {
+            destino: input_destino.value,
+            preco: Number(input_preco.value),
+            dias: Number(input_dias.value)
+        };
+
+        if(viagem.preco > 5000) {
+            viagem.tipo  = `Internacional Premium`
+        } else {
+            viagem.tipo  = `Viagem Nacional`
+        }
+
+        div_mensagem.innerHTML += `
+        Destino: ${viagem.destino}<br>
+        Preço: R$${viagem.preco}<br>
+        Dias: ${viagem.dias}<br>
+        Tipo: ${viagem.tipo}<br><br>
+        `
+    }
+</script>

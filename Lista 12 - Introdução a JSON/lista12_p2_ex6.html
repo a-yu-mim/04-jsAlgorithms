@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome:<br>
+    <input type="text" id="input_nome"><br>
+    Telefone:<br>
+    <input type="text" id="input_telefone"><br><br>
+    <button onclick="cadastrar()">Cadastrar Contato</button>
+    <button onclick="exibir()">Exibir Contatos</button><br><br>
+
+    De: <input type="text" id="input_de">
+    Até: <input type="text" id="input_ate">
+    <button onclick="filtrar()">Filtrar Contatos</button><br><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    let contatos = [];
+
+    function cadastrar() {
+        let contato = {
+            nome: input_nome.value,
+            telefone: input_telefone.value
+        };
+        contatos.push(contato);
+        input_nome.value = "";
+        input_telefone.value = "";
+    }
+
+    function exibir() {
+        let mensagem = "";
+        for (let i = 0; i < contatos.length; i++) {
+            mensagem += `${contatos[i].nome} - ${contatos[i].telefone}<br>`;
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+
+    function filtrar() {
+        let de = Number(input_de.value) - 1;
+        let ate = Number(input_ate.value);
+        let mensagem = "";
+        
+        for (let i = de; i < ate; i++) {
+            if (contatos[i] != '') {
+                mensagem += `${contatos[i].nome} - ${contatos[i].telefone}<br>`;
+            }
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

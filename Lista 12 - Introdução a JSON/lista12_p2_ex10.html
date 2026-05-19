@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome do animal:<br>
+    <input type="text" id="input_nome"><br>
+    Espécie:<br>
+    <input type="text" id="input_especie"><br><br>
+
+    <button onclick="cadastrar()">Cadastrar Animal</button>
+    <button onclick="listar()">Listar Animais</button><br><br>
+
+    <input type="text" id="input_filtro" placeholder="Espécie">
+    <button onclick="filtrar()">Filtrar Animais</button><br><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    let animais = [];
+
+    function cadastrar() {
+        let animal = {
+            nome: input_nome.value,
+            especie: input_especie.value
+        };
+        animais.push(animal);
+    }
+
+    function listar() {
+        let mensagem = "";
+
+        for (let i = 0; i < animais.length; i++) {
+            mensagem += `${animais[i].nome} - ${animais[i].especie}<br>`;
+        }
+        
+        div_mensagem.innerHTML = mensagem;
+    }
+
+    function filtrar() {
+        let especie = input_filtro.value;
+        let mensagem = "";
+
+        for (let i = 0; i < animais.length; i++) {
+            if (animais[i].especie == especie) {
+                mensagem += `${animais[i].nome} - ${animais[i].especie}<br>`;
+            }
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

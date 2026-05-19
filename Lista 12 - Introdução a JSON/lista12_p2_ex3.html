@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Jogo: <input type="text" id="input_jogo">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="listar()">Listar Jogos</button><br><br>
+
+    De: <br><input type="text" id="input_de"><br>
+    Até: <br><input type="text" id="input_ate">
+    <button onclick="filtrar()">Filtrar Jogos</button><br><br>
+    <div id="div_contador"></div>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    let jogos = [];
+
+    function cadastrar() {
+        let nome = input_jogo.value;
+
+        if (nome != "") {
+            jogos.push(nome);
+
+            input_jogo.value = "";
+            div_contador.innerHTML = `Você já cadastrou ${jogos.length} jogos`;
+        }
+    }
+
+    function listar() {
+        let mensagem = '';
+
+        for (let i = jogos.length - 1; i >= 0; i--) {
+            mensagem += `${i + 1}. ${jogos[i]}<br>`;
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+
+    function filtrar() {
+        let mensagem = '';
+        let de = Number(input_de.value) - 1;
+        let ate = Number(input_ate.value) - 1;
+
+        for (let i = ate; i >= de; i--) {
+            if (jogos[i] != '') {
+                mensagem += `${i + 1}. ${jogos[i]}<br>`;
+            }
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

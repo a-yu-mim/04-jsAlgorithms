@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome:<br>
+    <input type="text" id="input_nome"><br>
+    Idade:<br>
+    <input type="text" id="input_idade"><br>
+    Cargo:<br>
+    <input type="text" id="input_cargo">
+    <button onclick="cadastrar()">Cadastrar Usuário</button><br><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function cadastrar(){
+        let usuario = {
+            nome: input_nome.value,
+            idade: Number(input_idade.value),
+            cargo: input_cargo.value
+        };
+
+        if(usuario.cargo == "Administrador") {
+            usuario.acesso = "Total";
+        } else {
+            usuario.acesso = "Limitado";
+        }
+
+        div_mensagem.innerHTML += `
+        Usuário: ${usuario.nome}<br>
+        Cargo: ${usuario.cargo}<br>
+        Nível de acesso: ${usuario.acesso}<br><br>
+        `
+    }
+</script>

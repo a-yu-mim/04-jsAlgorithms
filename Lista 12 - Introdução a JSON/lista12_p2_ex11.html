@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Evento:<br>
+    <input type="text" id="input_evento"><br>
+    Data:<br>
+    <input type="text" id="input_data"><br>
+    Local:<br>
+    <input type="text" id="input_local"><br><br>
+
+    <button onclick="cadastrar()">Cadastrar Evento</button>
+    <button onclick="exibir()">Exibir Agenda</button><br><br>
+
+    De: <br>
+    <input type="text" id="input_de"><br>
+    Até: <br>
+    <input type="text" id="input_ate">
+    <button onclick="filtrar()">Filtrar Agenda</button><br><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    let eventos = [];
+
+    function cadastrar() {
+        let evento = {
+            nome: input_evento.value,
+            data: input_data.value,
+            local: input_local.value
+        };
+        eventos.push(evento);
+    }
+
+    function exibir() {
+        let mensagem = "";
+        
+        for (let i = 0; i < eventos.length; i++) {
+            mensagem += `${eventos[i].nome} - ${eventos[i].data} - ${eventos[i].local}<br>`;
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+
+    function filtrar() {
+        let de = Number(input_de.value) - 1;
+        let ate = Number(input_ate.value);
+        let mensagem = "";
+
+        for (let i = de; i < ate; i++) {
+            if (eventos[i] != undefined) {
+                mensagem += `${eventos[i].nome} - ${eventos[i].data} - ${eventos[i].local}<br>`;
+            }
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

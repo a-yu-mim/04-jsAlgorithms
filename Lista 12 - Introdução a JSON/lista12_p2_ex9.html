@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Curso:<br>
+    <input type="text" id="input_curso">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="exibir()">Exibir Cursos</button><br><br>
+
+    De: <input type="text" id="input_de">
+    Até: <input type="text" id="input_ate">
+    <button onclick="filtrar()">Filtrar Cursos</button><br><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    let cursos = [];
+
+    function cadastrar() {
+        let nome = input_curso.value;
+
+        if (nome != "") {
+            cursos.push(nome);
+
+            input_curso.value = "";
+        }
+    }
+
+    function exibir() {
+        let mensagem = `Total de cursos cadastrados: ${cursos.length}<br><br>`;
+
+        for (let i = 0; i < cursos.length; i++) {
+            mensagem += `${i + 1}. ${cursos[i]}<br>`;
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+
+    function filtrar() {
+        let de = Number(input_de.value) - 1;
+        let ate = Number(input_ate.value);
+        let mensagem = `Total de cursos cadastrados: ${cursos.length}<br><br>`;
+
+        for (let i = de; i < ate; i++) {
+            if (cursos[i] != '') {
+                mensagem += `${i + 1}. ${cursos[i]}<br>`;
+            }
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

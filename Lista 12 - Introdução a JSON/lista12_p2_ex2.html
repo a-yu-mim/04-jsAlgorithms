@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome do produto:<br>
+    <input type="text" id="input_nome"><br>
+    Preço:<br>
+    <input type="text" id="input_preco">
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="atualizarEstoque()">Atualizar Estoque</button><br><br>
+
+    <select id="select_filtro">
+        <option value="acima">Preços acima de</option>
+        <option value="abaixo">Preços abaixo de</option>
+    </select>
+
+    <input type="text" id="input_valor" placeholder="Valor">
+    <button onclick="filtrar()">Filtrar Produtos</button><br><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    let produtos = [];
+
+    function cadastrar() {
+        let mensagem = '';
+
+        if (nome.length >= 3 && preco > 0) {
+
+            let produto = { 
+                nome: input_nome.value,
+                preco: Number(input_preco.value) 
+            };
+            produtos.push(produto);
+            input_nome.value = '';
+            input_preco.value = '';
+
+           mensagem = "Produto cadastrado com sucesso!<br><br>";
+        } else if (nome.length < 3) {
+           mensagem = "O nome deve conter ao menos 3 letras.<br><br>";
+        } else {
+           mensagem = "O preço deve ser positivo.<br><br>";
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+
+    function atualizarEstoque() {
+        let total = 0;
+        let mensagem = '';
+
+        mensagem = `Você tem ${produtos.length} produtos cadastrados em estoque:<br><br>`;
+
+        for (let i = 0; i < produtos.length; i++) {
+            mensagem += `${i + 1}. ${produtos[i].nome} - R$${produtos[i].preco}<br>`;
+            total += produtos[i].preco;
+        }
+        mensagem += `<br>Seu estoque vale R$${total}<br>`;
+        div_mensagem.innerHTML = mensagem;
+    }
+
+    function filtrar() {
+        let valor = Number(input_valor.value);
+        let opcao = select_filtro.value;
+        let mensagem = '';
+
+        for (let i = 0; i < produtos.length; i++) {
+
+            if (opcao == "acima" && produtos[i].preco > valor) {
+                mensagem += `${produtos[i].nome} - R$${produtos[i].preco}<br>`;
+            } else if (opcao == "abaixo" && produtos[i].preco < valor) {
+                mensagem += `${produtos[i].nome} - R$${produtos[i].preco}<br>`;
+            }
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

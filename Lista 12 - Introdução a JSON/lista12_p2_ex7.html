@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Nome do jogo:<br>
+    <input type="text" id="input_nome"><br>
+    Quantidade de jogadores:<br>
+    <input type="text" id="input_jogadores"><br><br>
+    <button onclick="cadastrar()">Cadastrar Jogo</button>
+    <button onclick="listar()">Listar Jogos</button><br><br>
+
+    Jogadores: <input type="text" id="input_filtro">
+    <button onclick="filtrar()">Filtrar por Jogadores</button><br><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    let jogos = [];
+
+    function cadastrar() {
+        let jogo = {
+            nome: input_nome.value,
+            jogadores: Number(input_jogadores.value)
+        };
+        jogos.push(jogo);
+        input_nome.value = "";
+        input_jogadores.value = "";
+    }
+
+    function listar() {
+        let mensagem = `Total de jogos cadastrados: ${jogos.length}<br><br>`;
+
+        for (let i = 0; i < jogos.length; i++) {
+            mensagem += `${jogos[i].nome} - ${jogos[i].jogadores} jogadores<br>`;
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+
+    function filtrar() {
+        let qtd = Number(input_filtro.value);
+        let mensagem = "";
+        
+        for (let i = 0; i < jogos.length; i++) {
+            if (jogos[i].jogadores == qtd) {
+                mensagem += `${jogos[i].nome} - ${jogos[i].jogadores} jogadores<br>`;
+            }
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>
